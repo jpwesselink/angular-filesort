@@ -1,6 +1,6 @@
 {
   "name": "angular-filesort",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Sort angular files from the command line",
   "main": "index.js",
   "bin": {
