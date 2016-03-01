@@ -1,31 +1,25 @@
 #!/usr/bin/env node
 
-var angularFilesort = require('gulp-angular-filesort');
-var path = require('path');
+var gulpAngularFilesort = require('gulp-angular-filesort');
 
-var yargsInstance = require('yargs')
+var argv = require('yargs')
   .usage('Usage: $0 <command> [options]')
   .demand(1)
-  .example('$0 ./src/**/*.js', 'Sort all angular files')
+  .example('$0 \'./src/**/*.js\'', 'Sort all Angular files (yes, in quotes)')
   .help('h')
   .alias('h', 'help')
-  .epilog('copyright 2016');
-
-var argv = yargsInstance.argv;
-var g = path.resolve(argv._[0]);
+  .epilog('copyright 2016')
+  .argv;
 
 var vfs = require('vinyl-fs');
 var through2 = require('through2');
 
-function logFile() {
-
-  return through2.obj(function (file, enc, done) {
-    console.log(file.path);
-    this.push(file);
-    done();
-  });
-}
-
-vfs.src([g])
-  .pipe(angularFilesort())
-  .pipe(logFile());
+vfs.src(argv._[0])
+  .pipe(gulpAngularFilesort())
+  .pipe(function () {
+    return through2.obj(function (file, enc, done) {
+      console.log(file.path);
+      this.push(file);
+      done();
+    });
+  }());
