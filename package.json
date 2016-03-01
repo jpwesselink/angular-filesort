@@ -1,11 +1,24 @@
 {
   "name": "angular-filesort",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sort angular files from the command line",
   "main": "index.js",
+  "bin": {
+    "angular-filesort": "./index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpwesselink/angular-filesort.git"
+  },
   "author": "JP Wesselink <jpwesselink@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gulp-angular-filesort": "^1.1.1",
+    "through2": "^2.0.1",
+    "vinyl-fs": "^2.3.4",
+    "yargs": "^4.2.0"
+  }
 }
