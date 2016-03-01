@@ -2,7 +2,7 @@
 
 Sorts Angular files from the command line
 
-__Do not until v1.x__
+__Do not use until v1.x__
 
 ## Usage
 
