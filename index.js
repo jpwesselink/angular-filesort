@@ -18,7 +18,7 @@ vfs.src(argv._[0])
   .pipe(gulpAngularFilesort())
   .pipe(function () {
     return through2.obj(function (file, enc, done) {
-      console.log(file.path);
+      process.stdout.write(file.path + '\n');
       this.push(file);
       done();
     });
